@@ -24,8 +24,13 @@ body {
 .dd-justify-space-between {
   justify-content: space-between;
 }
+
+.dd-grid-4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
 /* ----------------------Header Section ----------------------- */
 .project {
+  width: 1100px;
   height: 10rem;
   background-color: rgb(47, 102, 150);
   font-size: 5rem;
@@ -54,6 +59,9 @@ body {
   transition: 0.4s;
 }
 /* ---------------------- Main Section ----------------------- */
+.main {
+  min-height: 100vh;
+}
 .location-search {
   margin-top: 10rem;
 }
@@ -98,4 +106,47 @@ body {
   color: rgb(106, 105, 105);
   transform: scale(1.05);
   transition: 0.4s;
+}
+/* <--------------------------footer section----------------------------> */
+
+.section-footer {
+  background-color: #485a67;
+}
+.footer-links {
+  display: grid;
+  max-width: 110rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+.logo-footer .img {
+  width: 70%;
+}
+.links {
+  width: 100%;
+}
+.links .footer-heading {
+  font-size: 3rem;
+  margin: 2rem auto;
+}
+
+.links .dd-footer-ul {
+  list-style: none;
+}
+.links .dd-footer-ul .dd-footer-li {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.links .dd-footer-ul .dd-footer-li .dd-footer-items {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+.links .dd-footer-ul .dd-footer-li .dd-footer-items .footer-icon {
+  font-weight: bold;
+}
+.links .dd-footer-ul .dd-footer-li .dd-footer-items:hover,
+.links .dd-footer-ul .dd-footer-li .dd-footer-items:active {
+  color: #90b3d0;
 }
