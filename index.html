@@ -7,38 +7,40 @@
     <title>ISRO Centers</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <header>
-      <div class="project">
-        <img src="images/isro-logo.png" alt="ISRO Logo" class="logo" />
+  <body class="dd-flex-center">
+    <header class="header-section">
+      <div class="project dd-flex-center dd-justify-space-between">
+        <img src="images/isro-logo.png" alt="ISRO Logo" class="logo img" />
         <p>Indian Space Research Organisation</p>
         <img
           src="images/satyamev-jayate.png"
           alt="Satyamev Jayate"
-          class="satyamev-jayate"
+          class="satyamev-jayate img"
         />
       </div>
       <nav>
-        <ul class="nav-items">
+        <ul class="nav-items dd-flex-center dd-justify-space-between">
           <li class="nav-item">Home</li>
           <li class="nav-item">About</li>
           <li class="nav-item">Activities</li>
-          <li class="nav-item">Services</li>
-          <li class="nav-item">Programmes</li>
-          <li class="nav-item">Resources</li>
-          <li class="nav-item">Engage with Us</li>
+          <li class="nav-item">Contact Us</li>
         </ul>
       </nav>
     </header>
     <main>
       <section class="location-search">
-        <form action="" method="get">
-          <input type="text" placeholder="Search..." name="search" />
-          <button type="submit">
+        <form class="form dd-flex-center" action="" method="get">
+          <input
+            class="input"
+            type="text"
+            placeholder="Search..."
+            name="search"
+          />
+          <button class="button" type="submit">
             <ion-icon name="search-outline"></ion-icon>
           </button>
         </form>
-        <div class="locations">
+        <div class="locations dd-flex-center dd-justify-space-between">
           <button class="city location">City</button>
           <button class="state location">State</button>
           <button class="center location">Center</button>
