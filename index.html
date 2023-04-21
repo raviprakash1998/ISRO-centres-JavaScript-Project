@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ISRO Centers</title>
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="App.js"></script>
   </head>
-  <body class="dd-flex-center">
+  <body class="dd-flex-center" onload="">
     <header class="header-section">
       <div class="project dd-flex-center dd-justify-space-between">
         <img src="images/isro-logo.png" alt="ISRO Logo" class="logo img" />
@@ -29,24 +30,32 @@
     </header>
     <main class="main">
       <section class="location-search">
-        <form class="form dd-flex-center" action="" method="get">
+        <form class="form dd-flex-center">
           <input
             class="input"
+            id="search-input"
             type="text"
             placeholder="Search..."
             name="search"
+            onkeyup="searchData()"
           />
-          <button class="button" type="submit">
+          <button id="search-button" class="button" type="submit">
             <ion-icon name="search-outline"></ion-icon>
           </button>
-        </form>
-        <div class="locations dd-flex-center dd-justify-space-between">
-          <button class="city location">City</button>
-          <button class="state location">State</button>
-          <button class="center location">Center</button>
-        </div>
 
-        <div class="search-item"></div>
+          <button id="city" class="city button">City</button>
+          <button id="state" class="state button">State</button>
+          <button id="name" class="center button">Center</button>
+        </form>
+
+        <!-- table for showing data -->
+        <div class="user-cards">
+          <table id="isroCenters" class="table">
+            <tr class="table-row">
+              <td></td>
+            </tr>
+          </table>
+        </div>
       </section>
     </main>
     <footer>
