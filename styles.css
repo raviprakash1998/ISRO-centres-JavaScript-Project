@@ -66,24 +66,31 @@ body {
   margin-top: 10rem;
 }
 .form .input {
-  padding: 1rem;
-  font-size: 2rem;
+  padding: 0.8rem;
+  font-size: 1.6rem;
   border: 0.2rem solid rgb(106, 105, 105);
-  width: 55rem;
+  width: 40rem;
   background: #e2e0e0;
   border-radius: 0.5rem 0 0 0.5rem;
   outline: none;
 }
 .form .button {
-  width: 12rem;
-  padding: 1rem;
+  width: 10rem;
+  padding: 0.8rem;
   background: #a4cae9;
   color: #333;
-  font-size: 2rem;
+  font-size: 1.6rem;
   border: 0.1rem solid rgb(106, 105, 105);
   border-left: none;
   cursor: pointer;
   border-radius: 0 0.5rem 0.5rem 0;
+}
+.form .city,
+.form .state,
+.form .center {
+  margin-left: 1rem;
+  border: 0.1rem solid rgb(106, 105, 105);
+  border-radius: 0.5rem;
 }
 .form .button:hover,
 .form .button:active {
@@ -91,21 +98,31 @@ body {
   background-color: #90b3d0;
   transition: 0.4s ease-in-out;
 }
-.locations {
-  margin-top: 2rem;
+
+.table {
+  margin-top: 10px;
+  font-size: 25px;
+  border-collapse: collapse;
+  width: 110rem;
+  margin: 5rem;
 }
-.location {
-  font-size: 2rem;
-  margin: 0 2rem;
-  padding: 1rem 5rem;
-  background-color: #a4cae9;
-  border-radius: 1rem;
+
+.dd-th,
+.dd-td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid black;
 }
-.location:hover,
-.location:active {
-  color: rgb(106, 105, 105);
-  transform: scale(1.05);
-  transition: 0.4s;
+
+.dd-th {
+  background-color: #90b3d0;
+}
+
+.dd-tr:nth-child(even) {
+  background-color: #a6a4a4;
+}
+.dd-tr:nth-child(odd) {
+  background-color: #cec9c9;
 }
 /* <--------------------------footer section----------------------------> */
 
