@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="App.js"></script>
   </head>
-  <body class="dd-flex-center" onload="">
+  <body class="dd-flex-center">
     <header class="header-section">
       <div class="project dd-flex-center dd-justify-space-between">
         <img src="images/isro-logo.png" alt="ISRO Logo" class="logo img" />
@@ -37,7 +37,6 @@
             type="text"
             placeholder="Search..."
             name="search"
-            onkeyup="searchData()"
           />
           <button id="search-button" class="button" type="submit">
             <ion-icon name="search-outline"></ion-icon>
@@ -49,13 +48,7 @@
         </form>
 
         <!-- table for showing data -->
-        <div class="user-cards">
-          <table id="isroCenters" class="table">
-            <tr class="table-row">
-              <td></td>
-            </tr>
-          </table>
-        </div>
+        <div id="user-cards" class="user-cards"></div>
       </section>
     </main>
     <footer>
