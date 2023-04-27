@@ -1,154 +1,112 @@
-const isroCenters = document.getElementById("isroCenters");
-const searchCity = document.getElementById("city");
-const searchState = document.getElementById("state");
-const searchCenter = document.getElementById("name");
+var centres = [],
+  filteredData;
+const searchBtn = document.getElementById("search-button");
+const cityBtn = document.getElementById("city");
+const stateBtn = document.getElementById("state");
+const centerBtn = document.getElementById("name");
 const searchInput = document.getElementById("search-input");
-
-const isro_centre_api = "https://isro.vercel.app/api/centres";
-var data;
+const userCard = document.getElementById("user-cards");
 
 // Defining async function
-async function getApi(url) {
-  const response = await fetch(url); // Storing response
-  data = await response.json(); // Storing data in form of JSON
-  displayApi(data);
-}
+const fetchData = async () => {
+  const isro_centre_api = "https://isro.vercel.app/api/centres";
+  const response = await fetch(isro_centre_api); // Storing response
+  const data = await response.json(); // Storing data in form of JSON
+  centres.push(...data.centres);
+  createCardHead();
+  centres.forEach((center) => createCard(center));
+};
 
-getApi(isro_centre_api); // Calling async function
+const createCardHead = async () => {
+  const card = document.createElement("div");
+  card.className =
+    "card card-h dd-flex-center dd-justify-space-between dd-bold";
+
+  const serNo = document.createElement("div");
+  serNo.className = "dd-width-100";
+  serNo.innerText = "S.No";
+
+  const centreName = document.createElement("div");
+  centreName.className = "dd-width-500";
+  centreName.innerText = "Centre Name";
+
+  const city = document.createElement("div");
+  city.className = "dd-width-250";
+  city.innerText = "City";
+
+  const state = document.createElement("div");
+  state.className = "dd-width-250";
+  state.innerText = "State";
+
+  card.append(serNo, centreName, city, state);
+
+  userCard.appendChild(card);
+};
 
 // Function to define innerHTML for HTML table
-function displayApi(data) {
-  let tab = `
-    <tr class="dd-tr">
-      <th class="dd-th" scope="col">S.No</th>
-	  	<th class="dd-th" scope="col">Center Name</th>
-	  	<th class="dd-th" scope="col">Place</th>
-	  	<th class="dd-th" scope="col">State</th>
-		</tr>`;
+const createCard = async ({ id, name, Place, State }) => {
+  const cardValue = document.createElement("div");
+  cardValue.className = "card dd-flex-center dd-justify-space-between";
 
-  // Loop to access all rows
-  for (let center of data.centres) {
-    tab += `
-      <tr class="dd-tr row">
-        <td class = "dd-td table-data">${center.id} </td>
-	      <td class="dd-td table-data">${center.name} </td>
-	      <td class="dd-td table-data">${center.Place}</td>
-	      <td class="dd-td table-data">${center.State}</td>
-      </tr>`;
-  }
-  // Setting innerHTML as tab variable
-  isroCenters.innerHTML = tab;
+  const serId = document.createElement("div");
+  serId.className = "dd-width-100";
+  serId.innerText = id;
+
+  const centreNameValue = document.createElement("div");
+  centreNameValue.className = "dd-width-500";
+  centreNameValue.innerText = name;
+
+  const cityValue = document.createElement("div");
+  cityValue.className = "dd-width-250";
+  cityValue.innerText = Place;
+
+  const stateValue = document.createElement("div");
+  stateValue.className = "dd-width-250";
+  stateValue.innerText = State;
+
+  cardValue.append(serId, centreNameValue, cityValue, stateValue);
+
+  userCard.appendChild(cardValue);
+};
+
+const reRenderedData = (searchedItem) => {
+  userCard.innerHTML = "";
+
+  createCardHead();
+  searchedItem.forEach((center) => createCard(center));
+};
+
+const searchCentre = () => {
+  filteredData = centres.filter((center) =>
+    center.name.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+  reRenderedData(filteredData);
+};
+
+const searchCity = () => {
+  filteredData = centres.filter((center) =>
+    center.Place.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+  reRenderedData(filteredData);
+};
+
+const searchState = () => {
+  filteredData = centres.filter((center) =>
+    center.State.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+  reRenderedData(filteredData);
+};
+
+function bindEvents() {
+  searchBtn.addEventListener("click", searchCentre);
+  cityBtn.addEventListener("click", searchCity);
+  stateBtn.addEventListener("click", searchState);
+  centerBtn.addEventListener("click", searchCentre);
 }
 
-//Function to set Flag
-var flag = "name";
-
-searchCity.addEventListener("click", () => {
-  var element = searchCity;
-  flag = "city";
-});
-
-searchState.addEventListener("click", () => {
-  var element = searchState;
-  flag = "state";
-});
-
-searchCenter.addEventListener("click", () => {
-  var element = searchCenter;
-  flag = "name";
-});
-
-//function for searching center by name
-function searchData() {
-  var val = searchInput.value;
-  let tab = `
-    <tr class="dd-tr row">
-      <th class="dd-th col">S.No</th>
-		  <th class="dd-th col">Center Name</th>
-		  <th class="dd-th col">Place</th>
-		  <th class="dd-th col">State</th>
-		</tr>`;
-
-  if (flag === "name") {
-    searchByName(tab, val);
-  } else if (flag === "city") {
-    searchByCity(tab, val);
-  } else if (flag === "state") {
-    searchByState(tab, val);
-  }
+function main() {
+  fetchData();
+  bindEvents();
 }
 
-//Function for searching center by name
-function searchByName(tab, val) {
-  let i = 1;
-
-  for (let center of data.centres) {
-    if (center.name.toLowerCase().includes(val.toLowerCase())) {
-      tab += `
-        <tr class="dd-tr row">
-			    <td class="dd-td table-data">${i++} </td>
-			    <td class="dd-td table-data">${center.name} </td>
-			    <td class="dd-td table-data">${center.Place}</td>
-			    <td class="dd-td table-data">${center.State}</td>
-			  </tr>`;
-    }
-  }
-
-  if (i <= 1) {
-    tab += `
-      <tr scope="row">
-		  	<td colspan="4" style="text-align:center;">No Record Found!!</td>
-		  </tr>`;
-  }
-  isroCenters.innerHTML = tab;
-}
-
-//Function for searching center by state
-function searchByState(tab, val) {
-  let i = 1;
-  for (let center of data.centres) {
-    if (center.State.toLowerCase().includes(val.toLowerCase())) {
-      tab += `
-        <tr class="row">
-		  	  <td class="table-data">${i++} </td>
-		  	  <td "table-data">${center.name} </td>
-		  	  <td "table-data">${center.Place}</td>
-		  	  <td "table-data">${center.State}</td>
-		    </tr>`;
-    }
-  }
-
-  if (i <= 1) {
-    tab += `
-      <tr scope="row">
-		  	<td colspan="4" style="text-align:center;">No Record Found!!</td>
-		  </tr>`;
-  }
-  isroCenters.innerHTML = tab;
-}
-
-//Function for searching center by city
-function searchByCity(tab, val) {
-  let i = 1;
-
-  for (let center of data.centres) {
-    if (center.Place.toLowerCase().includes(val.toLowerCase())) {
-      tab += `
-        <tr class="row">
-		    	<td class="table-data">${i++} </td>
-		    	<td "table-data">${center.name} </td>
-		    	<td "table-data">${center.Place}</td>
-		    	<td "table-data">${center.State}</td>
-		    </tr>`;
-    }
-  }
-
-  if (i <= 1) {
-    tab += `
-      <tr scope="row">
-		  	<td colspan="4" style="text-align:center;">No Record Found!!</td>
-		  </tr>`;
-  }
-  isroCenters.innerHTML = tab;
-}
-
+window.addEventListener("DOMContentLoaded", main);
