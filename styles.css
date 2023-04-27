@@ -8,7 +8,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  background: url("images/background-img.jpg") no-repeat fixed;
+  background: url("images/background-img.jpg") no-repeat center fixed;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -25,12 +25,26 @@ body {
   justify-content: space-between;
 }
 
+.dd-bold {
+  font-weight: bold;
+}
+
+.dd-width-100 {
+  width: 100px;
+}
+.dd-width-250 {
+  width: 250px;
+}
+.dd-width-500 {
+  width: 500px;
+}
+
 .dd-grid-4-cols {
   grid-template-columns: repeat(4, 1fr);
 }
 /* ----------------------Header Section ----------------------- */
 .project {
-  width: 1100px;
+  min-width: 1100px;
   height: 10rem;
   background-color: rgb(47, 102, 150);
   font-size: 5rem;
@@ -99,31 +113,18 @@ body {
   transition: 0.4s ease-in-out;
 }
 
-.table {
-  margin-top: 10px;
-  font-size: 25px;
-  border-collapse: collapse;
-  width: 110rem;
-  margin: 5rem;
+.card {
+  min-height: 20px;
+  min-width: 110rem;
+  background-color: #a4cae9;
+  margin: 5px auto;
+  padding: 3px;
+  font-size: 20px;
+}
+.card-h {
+  background-color: #99b9cf;
 }
 
-.dd-th,
-.dd-td {
-  text-align: left;
-  padding: 8px;
-  border: 1px solid black;
-}
-
-.dd-th {
-  background-color: #90b3d0;
-}
-
-.dd-tr:nth-child(even) {
-  background-color: #a6a4a4;
-}
-.dd-tr:nth-child(odd) {
-  background-color: #cec9c9;
-}
 /* <--------------------------footer section----------------------------> */
 
 .section-footer {
