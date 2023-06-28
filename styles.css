@@ -4,11 +4,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  font-size: 62.5%;
-}
 body {
-  background: url("images/background-img.jpg") no-repeat center fixed;
+  background-color: rgb(47, 102, 150);
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -44,78 +41,85 @@ body {
 }
 /* ----------------------Header Section ----------------------- */
 .project {
-  min-width: 1100px;
-  height: 10rem;
+  min-width: 1106px;
+  height: 100px;
   background-color: rgb(47, 102, 150);
-  font-size: 5rem;
+  font-size: 50px;
   color: whitesmoke;
 }
 .project .img {
-  height: 6rem;
-  margin: 0 4rem;
+  height: 60px;
+  margin: 0 40px;
 }
 .nav-items {
   list-style: none;
-  font-size: 2rem;
+  font-size: 20px;
   background-color: #a4cae9;
-  height: 6rem;
+  height: 60px;
   font-weight: bold;
 }
 .nav-item {
-  padding: 2rem;
-  margin: 0 1rem;
+  padding: 20px;
+  margin: 0 10px;
   cursor: pointer;
 }
-.nav-item:hover,
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+}
+.nav-item a:hover,
 .nav-item:active {
-  color: rgb(121, 123, 125);
+  color: rgb(106, 105, 105);
+}
+.nav-item:hover {
   transform: scale(1.05);
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
 }
 /* ---------------------- Main Section ----------------------- */
 .main {
   min-height: 100vh;
 }
 .location-search {
-  margin-top: 10rem;
+  margin-top: 100px;
+}
+.form {
+  margin-bottom: 20px;
 }
 .form .input {
-  padding: 0.8rem;
-  font-size: 1.6rem;
-  border: 0.2rem solid rgb(106, 105, 105);
-  width: 40rem;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid rgb(106, 105, 105);
+  width: 400px;
   background: #e2e0e0;
-  border-radius: 0.5rem 0 0 0.5rem;
+  border-radius: 5px 0 0 5px;
   outline: none;
 }
 .form .button {
-  width: 10rem;
-  padding: 0.8rem;
+  width: 100px;
+  padding: 8px;
   background: #a4cae9;
   color: #333;
-  font-size: 1.6rem;
-  border: 0.1rem solid rgb(106, 105, 105);
+  font-size: 16px;
+  border: 1px solid rgb(118, 146, 168);
   border-left: none;
   cursor: pointer;
-  border-radius: 0 0.5rem 0.5rem 0;
+  border-radius: 0 5px 5px 0;
 }
 .form .city,
 .form .state,
 .form .center {
-  margin-left: 1rem;
-  border: 0.1rem solid rgb(106, 105, 105);
-  border-radius: 0.5rem;
+  margin-left: 10px;
+  border-radius: 5px;
 }
 .form .button:hover,
 .form .button:active {
-  color: rgb(106, 105, 105);
-  background-color: #90b3d0;
+  background-color: rgb(118, 146, 168);
   transition: 0.4s ease-in-out;
 }
 
 .card {
   min-height: 20px;
-  min-width: 110rem;
+  min-width: 1100px;
   background-color: #a4cae9;
   margin: 5px auto;
   padding: 3px;
@@ -128,14 +132,14 @@ body {
 /* <--------------------------footer section----------------------------> */
 
 .section-footer {
-  background-color: #485a67;
+  background-color: #3e7092;
 }
 .footer-links {
   display: grid;
-  max-width: 110rem;
+  max-width: 1106px;
   margin: 0 auto;
   text-align: center;
-  padding: 2rem 0;
+  padding: 20px 0;
 }
 .logo-footer .img {
   width: 70%;
@@ -144,8 +148,8 @@ body {
   width: 100%;
 }
 .links .footer-heading {
-  font-size: 3rem;
-  margin: 2rem auto;
+  font-size: 30px;
+  margin: 20px auto;
 }
 
 .links .dd-footer-ul {
@@ -153,12 +157,12 @@ body {
 }
 .links .dd-footer-ul .dd-footer-li {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 .links .dd-footer-ul .dd-footer-li .dd-footer-items {
   text-decoration: none;
   color: #000;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 200;
 }
 .links .dd-footer-ul .dd-footer-li .dd-footer-items .footer-icon {
